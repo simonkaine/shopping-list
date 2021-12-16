@@ -7,10 +7,10 @@ import Goal from './Goal';
 export default function GoalsList({goals, onUpdate, onDelete}) {
     return (
         <div>
-            <ul aria-label='list'>
-                {goals.map((goal) => (
-                    <li key={goal}>
-                        <Goal goal={goal} onUpdate={onUpdate} onDelete={onDelete}/>
+            <ul aria-label='list' style={{listStyleType: 'none'}}>
+                {goals.map((theGoal) => (
+                    <li key={theGoal.id} >
+                        <Goal goal={theGoal} onUpdate={onUpdate} onDelete={onDelete}/>
                     </li>
                 ))}
             </ul>

@@ -17,8 +17,7 @@ export default function AddGoal({addGoal}) {
                 <input 
                     type='text' 
                     placeholder='Enter a goal!'
-                    value={goal} onChange={(e) => setGoal(e.target.value)}>
-                </input>
+                    value={goal} onChange={(e) => setGoal(e.target.value)} />
 
                 <button type='submit'>
                     Add GOAL!

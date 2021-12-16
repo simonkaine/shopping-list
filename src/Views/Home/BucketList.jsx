@@ -4,16 +4,25 @@ import { useReducer } from 'react';
 import AddGoal from '../../Components/AddGoal/AddGoal';
 import GoalsList from '../../Components/Goals/GoalsList';
 
-const goalId = 0;
+const newId = 6;
+
+const goalsArray = [
+    {id: 0, goal: 'Watch Spirited away', completed: false},
+    {id: 1, goal: 'Sky dive', completed: false},
+    {id: 2, goal: 'Make moms spaghetti', completed: false},
+    {id: 3, goal: 'Learn spanish', completed: false},
+    {id: 4, goal: 'Learn useReducer', completed: false},
+    {id: 5, goal: 'Complete Alchemy', completed: false},
+];
 
 function goalReducer(goals, action) {
     switch(action.type) {
         case 'addGoal': {
-            return [{
+            return [ ...goals, {
                 id: action.id,
-                goal: action.text,
-                completed: false
-            },]
+                goal: action.goal,
+                completed: false,
+            }]
         }
         case 'update': {
             return goals.map((goal) => {
@@ -30,37 +39,38 @@ function goalReducer(goals, action) {
             throw Error(`Unknown action: ${action.type}`)
         }
     }
-}
+};
 
 
 export default function BucketList() {
-    const [goals, dispatch] = useReducer(goalReducer, goalId);
+    const [goals, dispatch] = useReducer(goalReducer, goalsArray);
 
     const handleAddGoal = (goal) => {
         dispatch({
             type: 'addGoal',
-            id: goalId + 1,
-            goal
+            id: newId + 1,
+            goal,
         })
-    }
+    };
 
     const handleUpdateGoal = (update) => {
         dispatch({
             type: 'update',
-            update
+            update,
         })
-    }
+    };
 
     const handleDelete = (goalId) => {
         dispatch({
             type: 'deleteGoal',
             id: goalId,
         })
-    }
+    };
 
     // Needs a list to call that passes handle and state props
     return (
         <div>
+
             <h1>
                 The Totally Tubular Bucket List!
             </h1>
@@ -70,8 +80,7 @@ export default function BucketList() {
             <GoalsList 
                 goals={goals} 
                 onUpdate={handleUpdateGoal} 
-                onDelete={handleDelete}
-            />
+                onDelete={handleDelete} />
 
         </div>
     )
