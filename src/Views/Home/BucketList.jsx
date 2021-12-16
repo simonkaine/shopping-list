@@ -2,6 +2,7 @@ import React from 'react';
 import { useReducer } from 'react';
 // import { useState, useEffect } from 'react';
 import AddGoal from '../../Components/AddGoal/AddGoal';
+import GoalsList from '../../Components/Goals/GoalsList';
 
 const goalId = 0;
 
@@ -57,7 +58,7 @@ export default function BucketList() {
         })
     }
 
-
+    // Needs a list to call that passes handle and state props
     return (
         <div>
             <h1>
@@ -65,6 +66,12 @@ export default function BucketList() {
             </h1>
 
             <AddGoal addGoal={handleAddGoal}/>
+
+            <GoalsList 
+                goals={goals} 
+                onUpdate={handleUpdateGoal} 
+                onDelete={handleDelete}
+            />
 
         </div>
     )

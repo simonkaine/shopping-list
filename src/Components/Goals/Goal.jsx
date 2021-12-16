@@ -1,11 +1,10 @@
-// import React from 'react';
-// import { useState } from 'react';
+import React from 'react';
 
-// export default function Goal() {
-//     return (
-//         <div>
+export default function Goal({goal, onUpdate, onDelete}) {
+    return (
+        <div>
             
-//         </div>
-//     )
-// }
+        </div>
+    )
+}
 
