@@ -27,7 +27,7 @@ export default function Goal({goal, onUpdate, onDelete}) {
         goalContent = (
             <>
             <p style={{ textDecoration: goal.completed ? 'line-through' : null }}>{goal.goal}</p>
-            <button type='button' onClick={() => setUpdating(true)}>Edit</button>
+            <button aria-label='edit-Button' type='button' onClick={() => setUpdating(true)}>Edit</button>
             </>
         )
     }

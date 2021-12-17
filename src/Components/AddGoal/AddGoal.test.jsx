@@ -18,5 +18,5 @@ it('Should test for input to add a goal', async () => {
     const newInput = await screen.findAllByRole("textbox");
     userEvent.type(newInput[0], 'pass this test');
     expect(newInput[0]).toBeInTheDocument();
-})
+}) 
 
