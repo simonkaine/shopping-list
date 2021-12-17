@@ -10,11 +10,12 @@ export default function AddGoal({addGoal}) {
         addGoal(goal);
     };
 
-
     return (
         <div>
             <form onSubmit={submitHandle}>
+                <label htmlFor='addGoal'>Enter: </label>
                 <input 
+                    id='addGoal'
                     type='text' 
                     placeholder='Enter a goal!'
                     value={goal} onChange={(e) => setGoal(e.target.value)} />
