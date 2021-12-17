@@ -13,7 +13,7 @@ export default function AddGoal({addGoal}) {
     return (
         <div>
             <form onSubmit={submitHandle}>
-                <label htmlFor='addGoal'>Enter: </label>
+                <label aria-label='newGoal' htmlFor='addGoal'>Enter: </label>
                 <input 
                     id='addGoal'
                     type='text' 
